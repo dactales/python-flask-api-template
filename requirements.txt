@@ -1,0 +1,30 @@
+PyYAML
+SQLAlchemy
+WTForms
+Werkzeug
+flask-cache
+mysqlclient
+python-dateutil
+uWSGI
+
+# Flask
+Flask
+Flask-Assets
+Flask-Bootstrap
+Flask-Cors
+Flask-Login
+Flask-Mail
+Flask-Markdown
+Flask-Migrate
+Flask-OpenID
+Flask-Principal
+Flask-SQLAlchemy
+Flask-Script
+Flask-Security
+Flask-Session
+Flask-marshmallow
+
+# API
+flasgger
+marshmallow
+apispec==0.38.0 

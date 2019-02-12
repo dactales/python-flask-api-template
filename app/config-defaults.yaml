@@ -1,0 +1,48 @@
+DEBUG: False
+MAIL_DEBUG: False
+SQLALCHEMY_ECHO: False
+ASSETS_DEBUG: False
+
+SECRET_KEY: owcYbk7AFTeMWiCn
+
+MAIL_ADMINS:
+ - mail@xeroc.org
+MAIL_HOST: localhost
+MAIL_PORT: 587
+MAIL_USERNAME: username
+MAIL_PASSWORD: password
+MAIL_DEFAULT_SENDER: noreply@example.com
+MAIL_USE_TLS: True
+MAIL_USE_SSL: False
+MAIL_ERROR_SUBJECT: 'Application Error'
+
+SQLALCHEMY_DATABASE_URI: "sqlite:///database.sqlite"
+SQLALCHEMY_TRACK_MODIFICATIONS: False
+
+SECURITY_PASSWORD_HASH: "sha512_crypt"
+SECURITY_PASSWORD_SALT: "STM"
+SECURITY_EMAIL_SENDER: noreply@example.com
+SECURITY_REGISTERABLE: True
+SECURITY_CONFIRMABLE: True
+SECURITY_RECOVERABLE: True
+SECURITY_TRACKABLE: True
+SECURITY_POST_LOGIN_VIEW: "/profile"
+SECURITY_CHANGEABLE: True
+
+# Swagger
+SWAGGER:
+    title: API
+    specs:
+     - endpoint: "v1"
+       route: "/v1/spec"
+       version: "v1"
+       title: "Api v1"
+       description: "API"
+       termsOfService: ""
+    # headers for CORS
+    headers:
+     - ['Access-Control-Allow-Origin', '*']
+     - ['Access-Control-Allow-Methods', "GET, POST, PUT, DELETE, OPTIONS"]
+     - ['Access-Control-Allow-Headers', "Authorization, Content-Type"]
+     - ['Access-Control-Allow-Credentials', true]
+     - ['Access-Control-Expose-Headers', "Authorization"]
