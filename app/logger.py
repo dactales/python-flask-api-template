@@ -53,7 +53,7 @@ class Logger:
         mail_handler.setFormatter(logging.Formatter(MAIL_FORMAT))
         mail_handler.setLevel(logging.ERROR)
         if not app.debug:
-            for logger in app.logger + LOG_ADDITIONAL_LOGGERS:
+            for logger in [app.logger] + LOG_ADDITIONAL_LOGGERS:
                 logger.addHandler(mail_handler)
 
         return app.logger
