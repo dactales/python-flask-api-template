@@ -29,4 +29,6 @@ Flask-marshmallow
 # API
 flasgger
 marshmallow
-apispec==0.38.0 
+marshmallow_sqlalchemy
+apispec==1.0.0b5
+flask-marshmallow
