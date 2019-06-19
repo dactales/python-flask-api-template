@@ -5,7 +5,7 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from app.models import db
 from app.config import config
-from app.factory import create_app
+from app.factory import create_app, create_api
 
 
 app = create_app()
@@ -35,6 +35,12 @@ def testmail():
 @manager.command
 def web():
     app.run(debug=True)
+
+
+@manager.command
+def api():
+    app2 = create_api()
+    app2.run(debug=True)
 
 
 @manager.command

@@ -55,3 +55,8 @@ config.yaml
 *.swp
 migrations
 .ropeproject/
+
+app/database.sqlite
+app/package-lock.json
+app/node_modules
+app/semantic*
