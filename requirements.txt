@@ -1,4 +1,6 @@
 PyYAML
+pyjade
+
 SQLAlchemy
 WTForms
 Werkzeug

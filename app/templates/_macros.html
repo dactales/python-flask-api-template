@@ -1,0 +1,22 @@
+{% macro pagination(items) %}
+  {%- for page in items.iter_pages() %}
+    {% if page %}
+      {% if page != items.page %}
+        <a class="item" href="{{ url_for_other_page(page) }}">
+         {{ page }}
+        </a>
+      {% else %}
+        <div class="active item">
+         <strong>{{ page }}</strong>
+        </div>
+      {% endif %}
+    {% else %}
+     <div class="disabled item">
+      …
+     </div>
+    {% endif %}
+  {%- endfor %}
+  {% if items.has_next %}
+    <a class="item" href="{{ url_for_other_page(items.page + 1) }}">Next &raquo;</a>
+  {% endif %}
+{% endmacro %}
