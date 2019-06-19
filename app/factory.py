@@ -109,18 +109,37 @@ def create_api_blueprints(app=None):
 
 
 def create_jinjafilters(app):
-    from .utils import strfdelta, niceage
+    import yaml
     from flask import request, url_for
-    from flask_wtf.csrf import generate_csrf
+    from .utils import strfdelta, niceage
 
     if not app:
         app = create_flask_app()
 
+    def url_for_other_page(page):
+        args = request.view_args.copy()
+        args["page"] = page
+        return url_for(request.endpoint, **args)
+
     @app.template_filter("to_yaml")
     def to_yaml(x):
-        import yaml
-
         return "<pre>{}</pre>".format(yaml.dump(x))
+
+    @app.template_filter("niceage")
+    def _jinja2_filter_niceage(*args, **kwargs):
+        return niceage(*args, **kwargs)
+
+    @app.template_filter("datetime")
+    def _jinja2_filter_datetime(date, fmt=None):
+        if not date:
+            return "unkown"
+        if fmt:
+            return strfdelta(date, fmt)
+        else:
+            return strfdelta(date, "{days} days {hours} hours")
+
+    app.jinja_env.globals["url_for_other_page"] = url_for_other_page
+    app.jinja_env.add_extension("pyjade.ext.jinja.PyJadeExtension")
 
 
 def create_app():
